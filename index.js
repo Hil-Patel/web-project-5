@@ -1,18 +1,23 @@
 var audio=new Audio("./audio/7 Years - Lukas Graham 192(PagalWorld).mp3");
-const time=[16,33,49,65,81,97,113,128,145,160,177,193,209,225];
-var playing=false;
+const time=[16,33,49,65,81,97,113,128,145,160,177,193,209,225];      // this are the time frame for changing image
+var playing=false;    //  use to identify that song is paused or not
+// below function resume the song 
 function play(){
     audio.play();
     document.getElementById("playpause").classList.add("fa-pause");
     document.getElementById("playpause").classList.remove("fa-play");
     playing =true;
 }
+
+// below function pause the song  
 function pause() {
     audio.pause();
     playing=false;
     document.getElementById("playpause").classList.remove("fa-pause");
     document.getElementById("playpause").classList.add("fa-play");
 }
+
+//below function identify that whether we have to pause the song or resume it and call the above function accordingly.
 function playpause() {
     if(playing)
     {
@@ -22,16 +27,17 @@ function playpause() {
         play();
     }
     setTimeLine();
-    printTime();
 }
 
 var timeline=document.getElementById("TimeLine");
 
+// set the max value of timeline..
 function setTimeLine() {
     timeline.value=audio.currentTime;
     timeline.max=audio.duration;
 }
-// 147 wife 153 friend 155 sasuke 158 neji 161  naruto2 163  minato 166 naruto3 170 jiraya 174  child 178
+
+// this if is use to change the slider thumb position when the track is playing and also to change the image 
 if(audio.play()) {
     setInterval(function(){
         timeline.value=audio.currentTime;
@@ -67,13 +73,14 @@ if(audio.play()) {
     },500);
     
 }
-function printTime(){
-    console.log(audio.currentTime);
-}
+
+// to change the time of track when slider is clicked.
 function timeLineClicked() {
     audio.currentTime=timeline.value;
     play();
 }
+
+// skip 10 sec
 function controllerClicked(name){
     if(name==="fa-backward")
         audio.currentTime-=10;
