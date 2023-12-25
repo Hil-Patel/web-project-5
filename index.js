@@ -83,8 +83,8 @@ function timeLineClicked() {
 // skip 10 sec
 function controllerClicked(name){
     if(name==="fa-backward")
-        audio.currentTime=audio.currentTime-10;
+        audio.currentTime-=10;
     else    
-        audio.currentTime=audio.currentTime+10;
+        audio.currentTime+=10;
 }
 
