@@ -76,8 +76,8 @@ function timeLineClicked() {
 }
 function controllerClicked(name){
     if(name==="fa-backward")
-        audio.currentTime=0;
+        audio.currentTime-=10;
     else    
-        audio.currentTime=audio.duration;
+        audio.currentTime+=10;
 }
 
