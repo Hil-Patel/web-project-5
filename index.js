@@ -31,6 +31,13 @@ function playpause() {
 
 var timeline=document.getElementById("TimeLine");
 
+
+// Remove this if the code gives Error
+timeline.addEventListener('input',function() {
+    audio.currentTime = timeline.value;
+});
+
+
 // set the max value of timeline..
 function setTimeLine() {
     timeline.value=audio.currentTime;
@@ -75,10 +82,11 @@ if(audio.play()) {
 }
 
 // to change the time of track when slider is clicked.
-function timeLineClicked() {
-    audio.currentTime=timeline.value;
-    play();
-}
+
+// function timeLineClicked() {
+//     audio.currentTime=timeline.value;
+//     play();
+// }
 
 // skip 10 sec
 function controllerClicked(name){
