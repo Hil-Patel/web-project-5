@@ -125,6 +125,10 @@ body{
     color: white;
 }
 @media (max-width:700px){
+    .songDetail img{
+        height: auto;
+        width: 50%;
+    }
     .song{
         flex-direction: column;
         align-items: center;
